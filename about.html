@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}About | {{ company.name }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow mono">// about us</p>
+    <h1>Built on wiring done properly.</h1>
+  </div>
+</section>
+
+<section class="about-body">
+  <div class="container about-grid">
+    <div class="about-text">
+      <p>
+        IZZAS SOLUTIONS is an electrical installation and electronics sales business
+        serving homes, shops and offices in {{ company.location }}. We started with a simple
+        rule: every job gets tested before we call it finished — whether that's a single
+        socket or a full building rewire.
+      </p>
+      <p>
+        Alongside installation work, we stock and sell genuine electronics and appliances,
+        so you can fit out a room and power it from one place. No guesswork, no shortcuts —
+        just work that holds up.
+      </p>
+    </div>
+
+    <div class="about-stats">
+      <div class="stat">
+        <span class="stat-num mono">100%</span>
+        <span class="stat-label">Jobs tested before handover</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num mono">2</span>
+        <span class="stat-label">Trades under one roof</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num mono">24/7</span>
+        <span class="stat-label">WhatsApp response for call-outs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <p class="eyebrow mono">// how we work</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Safety first</h3>
+        <p>Every installation is earthed, tested and left safe — no exceptions.</p>
+      </div>
+      <div class="value-card">
+        <h3>Straight pricing</h3>
+        <p>You get a clear quote before any work starts. No surprise charges.</p>
+      </div>
+      <div class="value-card">
+        <h3>Genuine products</h3>
+        <p>Electronics and fittings we sell are sourced, not knock-offs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-inner">
+    <div>
+      <h2>Have a project in mind?</h2>
+      <p>Tell us what you're working on and we'll advise on the best approach.</p>
+    </div>
+    <a href="{{ company.whatsapp_link }}" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Chat with us</a>
+  </div>
+</section>
+
+{% endblock %}

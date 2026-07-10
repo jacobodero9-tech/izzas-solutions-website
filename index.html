@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow mono">// electrical installations · electronics sales</p>
+      <h1>We wire it right<br>the first time.</h1>
+      <p class="hero-lead">
+        IZZAS SOLUTIONS handles your electrical installations, repairs and genuine
+        electronics — for homes and businesses across {{ company.location }}.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ company.whatsapp_link }}" target="_blank" rel="noopener" class="btn btn-primary">Chat on WhatsApp</a>
+        <a href="tel:+{{ company.phone_intl }}" class="btn btn-outline">
+          <span class="mono">{{ company.phone_display }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-diagram" aria-hidden="true">
+      <svg viewBox="0 0 340 420" width="100%" height="100%">
+        <path id="tracePath" d="M170 10 L170 70 L90 70 L90 150 L170 150 L170 230 L250 230 L250 310 L170 310 L170 400"
+              fill="none" stroke="#3A414B" stroke-width="2"/>
+        <circle class="node" cx="170" cy="70" r="6"/>
+        <circle class="node" cx="90" cy="150" r="6"/>
+        <circle class="node" cx="250" cy="230" r="6"/>
+        <circle class="node" cx="170" cy="310" r="6"/>
+        <circle class="pulse" r="5" fill="#F0A93A">
+          <animateMotion dur="4s" repeatCount="indefinite"
+            path="M170 10 L170 70 L90 70 L90 150 L170 150 L170 230 L250 230 L250 310 L170 310 L170 400"/>
+        </circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="services-preview">
+  <div class="container">
+    <p class="eyebrow mono">// what we do</p>
+    <h2>Two trades, one call.</h2>
+    <div class="service-grid">
+      {% for s in services %}
+      <div class="service-card">
+        <span class="service-code mono">{{ s.code }}</span>
+        <h3>{{ s.name }}</h3>
+        <p>{{ s.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{{ url_for('services') }}" class="link-arrow">See all services →</a>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <p class="eyebrow mono">// how it works</p>
+    <h2>From call to switch-on.</h2>
+    <div class="process-grid">
+      {% for p in process %}
+      <div class="process-step">
+        <span class="step-num mono">{{ p.step }}</span>
+        <h4>{{ p.title }}</h4>
+        <p>{{ p.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-inner">
+    <div>
+      <h2>Need an electrician today?</h2>
+      <p>Message us on WhatsApp with your location and the job — we'll respond fast.</p>
+    </div>
+    <a href="{{ company.whatsapp_link }}" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Message {{ company.phone_display }}</a>
+  </div>
+</section>
+
+{% endblock %}

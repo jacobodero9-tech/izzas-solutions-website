@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Services | {{ company.name }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow mono">// services</p>
+        <h1>Everything electrical, in one place.</h1>
+        <p class="hero-sub">From wiring to solar, CCTV to water pumps — IZZA'S SOLUTIONS handles it all for Asembo, Ndori & Siaya County.</p>
+    </div>
+</section>
+
+<section class="services-full">
+    <div class="container">
+        {% for s in services %}
+        <div class="service-row">
+            <div class="service-row-head">
+                <span class="service-code mono">{{ s.code }}</span>
+                <h2>{{ s.name }}</h2>
+            </div>
+            
+            <div class="service-row-body">
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='img/' + s.image) }}" 
+                         alt="{{ s.name }} by IZZA'S SOLUTIONS" 
+                         loading="lazy">
+                </div>
+                
+                <div class="service-details">
+                    <p class="service-desc">{{ s.desc }}</p>
+                    
+                    <ul class="spec-list">
+                        {% for item in s.features %}
+                        <li><span class="mono">></span> {{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <div class="service-cta">
+                        <a href="https://wa.me/254719123028?text=Hi%20IZZA'S%20SOLUTIONS,%20I%20need%20a%20quote%20for%20{{ s.name | urlencode }}" 
+                           class="btn btn-primary">
+                           Get Quote on WhatsApp
+                        </a>
+                        <a href="tel:+254719123028" class="btn btn-ghost">
+                            Call: 0719 123 028
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container">
+        <h2>Not sure what you need?</h2>
+        <p>Send us a photo of your problem. We'll diagnose it free on WhatsApp.</p>
+        <a href="https://wa.me/254719123028?text=Hi,%20I%20have%20an%20electrical%20issue.%20Can%20you%20help?" 
+           class="btn btn-primary btn-lg">
+           Chat with Fundi Now
+        </a>
+    </div>
+</section>
+
+{% endblock %}
